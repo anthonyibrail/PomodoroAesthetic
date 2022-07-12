@@ -1,4 +1,10 @@
 import "./styles/App.css";
+import Actividad from "./components/actividad";
+
+/* 
+TODO: primero vamos a hacer la versión de celular.
+
+*/
 
 function App() {
     return (
@@ -14,7 +20,7 @@ function App() {
             <div className="tablero">
                 <div className="columna1">
                     <div className="timerPomodoro">{/* aqui va el componente timer */}</div>
-                    <div className="actividad">{/* aqui va el componente actividad */}</div>
+                    <Actividad/>
                 </div>
                 <div className="columna2">
                     <div className="todo">{/* aqui va el componente todo */}</div>

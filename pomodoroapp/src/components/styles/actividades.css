@@ -1,0 +1,11 @@
+.actividad {
+  width: 80%;
+  height: 400px;
+  margin-top: 30px;
+  border-radius: 20px;
+  background-color: #668C54;
+}
+.actividad h2 {
+  text-align: center;
+  color: white;
+}/*# sourceMappingURL=actividades.css.map */
