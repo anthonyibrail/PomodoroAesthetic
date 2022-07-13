@@ -1,7 +1,12 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body {
+  background-color: #DE4849;
 }
 
 .App {
@@ -9,58 +14,40 @@
   flex-direction: column;
 }
 
-.Nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 30px;
-}
-.Nav .hamburguesa {
-  background-color: #73704c;
-  width: 80px;
+nav {
+  width: 100%;
   height: 80px;
-  border-radius: 20px;
-}
-.Nav .navbar {
-  background-color: #73704c;
-  width: 60%;
-  height: 80px;
-  border-radius: 20px;
-  margin-left: 10px;
+  background-color: #A60321;
 }
 
 .tablero {
-  margin-top: 50px;
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
 }
 .tablero .columna1 {
-  height: 100%;
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* aqui ya no está lo de actividad
+  porque tiene una hoja de estilos 
+  aparte */
 }
 .tablero .columna1 .timerPomodoro {
-  width: 100%;
-  height: 300px;
+  width: 80%;
+  height: 297px;
+  background-color: #668C54;
+  margin-top: 50px;
   border-radius: 20px;
-  background-color: #73704c;
-}
-.tablero .columna1 .actividad {
-  width: 100%;
-  height: 400px;
-  margin-top: 10px;
-  border-radius: 20px;
-  background-color: #73704c;
 }
 .tablero .columna2 {
-  height: 100%;
-  width: 30%;
-  margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .tablero .columna2 .todo {
-  width: 100%;
-  height: 500px;
+  width: 80%;
+  height: 297px;
+  background-color: #668C54;
+  margin-top: 30px;
   border-radius: 20px;
-  background-color: #73704c;
 }/*# sourceMappingURL=App.css.map */
