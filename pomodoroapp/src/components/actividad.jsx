@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/actividades.css";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 function Actividad() {
     const data = [
         { name: "Lunes",actividad:20 },
@@ -15,9 +15,8 @@ function Actividad() {
     return (
         <div className="actividad">
             <h2>Actividad</h2>
+            <ResponsiveContainer width="100%" height="80%">
             <LineChart
-                width={300}
-                height={300}
                 data={data}
                 margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
             >
@@ -27,6 +26,7 @@ function Actividad() {
                 <YAxis />
                 <Tooltip />
             </LineChart>
+            </ResponsiveContainer>
         </div>
     );
 }
