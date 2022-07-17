@@ -1,5 +1,8 @@
 import "./styles/App.css";
 import Actividad from "./components/actividad";
+import Timer from "./components/Timer";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 /* 
 TODO: primero vamos a hacer la versión de celular.
@@ -19,7 +22,9 @@ function App() {
 
             <div className="tablero">
                 <div className="columna1">
-                    <div className="timerPomodoro">{/* aqui va el componente timer */}</div>
+                    <div className="timerPomodoro">{/* aqui va el componente timer */}
+                   <Timer/>
+                    </div>
                     <Actividad/>
                 </div>
                 <div className="columna2">
