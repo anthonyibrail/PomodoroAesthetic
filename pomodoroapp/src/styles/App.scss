@@ -5,6 +5,9 @@
 }
 
 $colorComponentesFondo:#668C54;
+$colorComponentesFondo-secundario: #95BC81;
+$txtWhite: white;
+$rxtBlack: black;
 $borderRadius: 20px;
 
 body{
@@ -40,6 +43,7 @@ nav{
             border-radius: $borderRadius;
         }
 
+
         /* aqui ya no está lo de actividad
         porque tiene una hoja de estilos 
         aparte */
@@ -58,6 +62,3 @@ nav{
         }
     }
 }
-
-
-  
