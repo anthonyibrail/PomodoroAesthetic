@@ -1,0 +1,8 @@
+.Navbar {
+  display: flex;
+  align-items: flex-end;
+  background-color: red;
+}
+.Navbar .elements {
+  display: flex;
+}/*# sourceMappingURL=Navbar.css.map */
