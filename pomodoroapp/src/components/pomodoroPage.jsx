@@ -8,8 +8,8 @@ const PomodoroPage = () => {
             <div className="tablero">
                 <div className="columna1">
                     <div className="timerPomodoro">
-                        {/* aqui va el componente timer */}
                         <Timer />
+                        {/* aqui va el componente timer */}
                     </div>
                     <Actividad />
                 </div>

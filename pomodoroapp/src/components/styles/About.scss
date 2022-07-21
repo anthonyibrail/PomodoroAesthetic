@@ -1,0 +1,29 @@
+.wrapper2{
+    width: 100vw;
+    height: 90vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .containerPerfil{
+        color: white;
+        width: 70%;
+        height: 80%;
+        background-color: #668C54;
+        border-radius: 30px;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: auto;
+        h2{
+            color: white;
+        }
+        h3{
+            color:white;
+        }
+        p{
+            text-align: justify;
+        }
+    }
+}

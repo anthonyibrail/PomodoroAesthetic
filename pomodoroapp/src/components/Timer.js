@@ -5,7 +5,7 @@ function Timer() {
     const [stateBreak, setBreak] = useState(5);
     const [stateSession, setSession] = useState(25);
     const [stateMinutes, setMinutes] = useState(25);
-    const [stateSeconds, setSeconds] = useState(5);
+    const [stateSeconds, setSeconds] = useState(0);
     const [stateTimer, setTimer] = useState(null);
     const [stateBehaviour, setBehaviour] = useState("Session");
 
@@ -125,9 +125,9 @@ function Timer() {
             <div className="boxControls">
                 <button onClick={startStop}>
                     {stateTimer ? (
-                        <i class="bi bi-pause-fill"></i>
+                        <i className="bi bi-pause-fill"></i>
                     ) : (
-                        <i class="bi bi-play-fill"></i>
+                        <i className="bi bi-play-fill"></i>
                     )}
                 </button>
                 

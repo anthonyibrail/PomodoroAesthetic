@@ -1,0 +1,28 @@
+.wrapper2 {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper2 .containerPerfil {
+  color: white;
+  width: 70%;
+  height: 80%;
+  background-color: #668C54;
+  border-radius: 30px;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+.wrapper2 .containerPerfil h2 {
+  color: white;
+}
+.wrapper2 .containerPerfil h3 {
+  color: white;
+}
+.wrapper2 .containerPerfil p {
+  text-align: justify;
+}/*# sourceMappingURL=About.css.map */
