@@ -1,2 +1,2 @@
-# DesarrolloWeb
-Lo que hagamos en desarrollo web
+# Desarrollo Web
+Proyecto final del curso Desarrollo de aplicaciones web
