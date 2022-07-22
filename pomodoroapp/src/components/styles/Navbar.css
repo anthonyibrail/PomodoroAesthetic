@@ -2,10 +2,28 @@ a{
   color: white;
 }
 .Navbar {
+  height: 100px;
+  background-color: #A60321;
+  color: white;
   display: flex;
-  align-items: flex-end;
-  background-color: red;
+  flex-direction: row;
 }
-.Navbar .elements {
+.elements {
+  list-style-type: none;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }/*# sourceMappingURL=Navbar.css.map */
+.element {
+  padding-right: 8px;
+}
+.pomodoroTitle {
+  padding: auto;
+  font-weight: bold;
+  padding-right: 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
