@@ -12,6 +12,7 @@ body {
 .App {
   display: flex;
   flex-direction: column;
+  background-color: #DE4849;
 }
 
 .tablero {
