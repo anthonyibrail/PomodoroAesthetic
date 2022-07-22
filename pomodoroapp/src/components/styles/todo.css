@@ -1,0 +1,53 @@
+
+.wrapperTodo{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrapperTodo > h1{
+    color: white;
+    margin-top: 10px;
+}
+.inputTodo{
+    border-radius: 20px;
+    height: 60px;
+    width: 80%;
+    padding: 2%;
+    background-color: #95bc81;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.addTask{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonPlus{
+    height: 60px;
+    width: 60px;
+    margin-left: 10px;
+}
+
+.tasks{
+    height: 60px;
+    width: 85%;
+    background-color: #95bc81;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 5%;
+    margin-bottom: 20px;
+    color: white;
+
+}
+
+/* input[type='text'] {
+    background-image: url(images/comment-author.gif);
+    background-position: 7px 7px;
+    background-repeat: no-repeat;
+} */

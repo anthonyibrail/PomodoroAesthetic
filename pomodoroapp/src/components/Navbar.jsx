@@ -1,5 +1,6 @@
 import React from 'react'
 import "./styles/Navbar.css"
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -7,13 +8,13 @@ function Navbar() {
         <nav className='Navbar'> 
             <ul className='elements'>
                 <div className='element'>
-                    <li>Profile</li>
+                    <li><Link to="/">Home</Link></li>
                 </div>
                 <div className='element'>
-                    <li>About</li>
+                    <li><Link to="/About">About</Link></li>
                 </div>
                 <div className='element'>
-                    <li>Home</li>
+                    <li><Link to="/profile">Profile</Link></li>
                 </div>
                 <div className='pomodoroTitle'>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
