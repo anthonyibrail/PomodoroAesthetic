@@ -5,11 +5,11 @@ function Timer() {
     const [stateBreak, setBreak] = useState(5);
     const [stateSession, setSession] = useState(25);
     const [stateMinutes, setMinutes] = useState(25);
-    const [stateSeconds, setSeconds] = useState(5);
+    const [stateSeconds, setSeconds] = useState(0);
     const [stateTimer, setTimer] = useState(null);
     const [stateBehaviour, setBehaviour] = useState("Session");
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (stateTimer) {
             let interval = setInterval(() => {
                 handleNumber();
@@ -73,11 +73,6 @@ function Timer() {
         stateTimer ? stopTimer() : startTimer();
     }
 
-    function timeLeft() {
-        let minutes = stateMinutes < 10 ? "0" + stateMinutes : stateMinutes;
-        let seconds = stateSeconds < 10 ? "0" + stateSeconds : stateSeconds;
-        return minutes + ":" + seconds;
-    }
 
     function stopTimer() {
         setTimer(null);
@@ -123,9 +118,9 @@ function Timer() {
             <div className="boxControls">
                 <button onClick={startStop}>
                     {stateTimer ? (
-                        <i class="bi bi-pause-fill"></i>
+                        <i className="bi bi-pause-fill"></i>
                     ) : (
-                        <i class="bi bi-play-fill"></i>
+                        <i className="bi bi-play-fill"></i>
                     )}
                 </button>
                 
@@ -138,7 +133,7 @@ function Timer() {
                     <button onClick={sessionDecrement}>
                         <i className="bi bi-dash"></i>
                     </button>
-                    <i class="bi bi-clock"></i> Sesión
+                    <i className="bi bi-clock"></i> Sesión
                     <button onClick={sessionIncrement}>
                         <i className="bi bi-plus"></i>
                     </button>
@@ -148,7 +143,7 @@ function Timer() {
                     <button onClick={breakDecrement}>
                         <i className="bi bi-dash"></i>
                     </button>
-                    <i class="bi bi-clock"></i> Descanso
+                    <i className="bi bi-clock"></i> Descanso
                     <button onClick={breakIncrement}>
                         <i className="bi bi-plus"></i>
                     </button>

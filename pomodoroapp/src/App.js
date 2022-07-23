@@ -14,24 +14,38 @@ TODO: primero vamos a hacer la versión de celular.
 function App() {
     return (
         <div className="App">
-            {/* aqui abajo va el nav y la hamburguesa */}
-            <Navbar />
+            
             <BrowserRouter>
                 <Routes>
-                    
-                    <Route path="/login" element={<SignIn/>} />
+                    <Route path="/login" element={<SignIn />} />
                     <Route path="/" element={<PomodoroPage />} />
                     <Route path="/About" element={<About />} />
                 </Routes>
             </BrowserRouter>
-            
+
             <div>
                 <footer>
-                    <p>Hecho con <i class="bi bi-suit-heart"></i> por:</p>
+                    <p>
+                        Hecho con <i className="bi bi-suit-heart"></i> por:
+                    </p>
                     <nav>
-                        <a href="https://github.com/AlnSuarez" target='_blank'><i class="bi bi-github"></i> AlnSuarez</a> | 
-                        <a href="https://github.com/MauroAlatristeA" target='_blank'><i class="bi bi-github"></i> MauroAlatristeA</a> | 
-                        <a href="https://github.com/anthonyibrail" target='_blank'><i class="bi bi-github"></i> anthonyibrail</a>
+                        <a href="https://github.com/AlnSuarez" target="_blank">
+                            <i className="bi bi-github"></i> AlnSuarez
+                        </a>{" "}
+                        |
+                        <a
+                            href="https://github.com/MauroAlatristeA"
+                            target="_blank"
+                        >
+                            <i className="bi bi-github"></i> MauroAlatristeA
+                        </a>{" "}
+                        |
+                        <a
+                            href="https://github.com/anthonyibrail"
+                            target="_blank"
+                        >
+                            <i className="bi bi-github"></i> anthonyibrail
+                        </a>
                     </nav>
                 </footer>
             </div>

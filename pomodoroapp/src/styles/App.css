@@ -1,4 +1,3 @@
-@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -45,7 +44,7 @@ body {
   background-color: #668C54;
   margin-top: 30px;
   border-radius: 20px;
-}/*# sourceMappingURL=App.css.map */
+}
 footer {
   height: 100px;
   margin-top: 32px;
@@ -56,3 +55,15 @@ footer {
   align-items: center;
   flex-direction: column;
 }
+
+.todo{
+  background-color: #668C54;
+  width: 80%;
+  height: 570px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+
+
+
