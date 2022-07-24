@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
 import "./styles/todo.css";
 import axios from "axios";
 
 function Todo() {
-    const [Arreglo, setArreglo] = useState([
-        {
-            textObj: "tarea ejemplo",
-            index: 0,
-            isDone: false,
-            toggleEdit: false,
-        },
-    ]);
+    const [Arreglo, setArreglo] = useState([]);
 
     const [text, setText] = useState("");
     const [text2, setText2] = useState("");
@@ -21,11 +14,17 @@ function Todo() {
         setText(e);
     };
 
+    useEffect(() => {
+        axios.get("http://localhost:4001/api/alltasks/anthony").then((res) => {
+            setArreglo(res.data);
+        });
+    }, []);
+
     const handleClick = () => {
         if (text.length !== 0) {
             let temp = uuidv4();
             axios
-                .post("localhost:4001/api/tasks", {
+                .post("http://localhost:4001/api/tasks", {
                     routeName: "Anthony",
                     textObj: text,
                     id: temp,
@@ -36,23 +35,32 @@ function Todo() {
                 .then(function (response) {
                     console.log(response);
                 })
-                .catch((error) =>
-                   console.log(error)
-                );
+                .catch((error) => console.log(error));
             setArreglo([
                 ...Arreglo,
-                { textObj: text, id: temp, isDone: false, toggleEdit: false },
+                {
+                    routeName: "Anthony",
+                    textObj: text,
+                    id: temp,
+                    isDone: false,
+                    toggleEdit: false,
+                    name: "Anthony",
+                },
             ]);
         } else {
             toast("No has llenado el apartado de texto.");
         }
     };
 
-    // const handleSelected = (e) => {
-    //     console.log(`su id es: ${e}`);
-    // };
-
     const borrar = (tareaid) => {
+        axios
+            .post("http://localhost:4001/api/deletetask", { id: tareaid })
+            .then(() => {
+                console.log("borrado exitoso");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         setArreglo(Arreglo.filter((tareatemp) => tareatemp.id !== tareaid));
     };
 
@@ -67,6 +75,8 @@ function Todo() {
     };
 
     const editTask = (tareaid) => {
+        
+
         let temp = Arreglo.map((elemento) => {
             if (tareaid === elemento.id) {
                 if (elemento.toggleEdit === true) {
@@ -85,6 +95,16 @@ function Todo() {
     };
 
     const replaceTask = (tareaid) => {
+
+        axios
+            .post("http://localhost:4001/api/edittask", { id: tareaid, textObj: text2 })
+            .then(() => {
+                console.log("editado exitoso");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
         if (text2.length !== 0) {
             let temp = Arreglo.map((elemento) => {
                 if (tareaid === elemento.id) {
@@ -125,6 +145,7 @@ function Todo() {
                                 type="checkbox"
                                 key={index}
                                 onClick={() => checked(tarea.id)}
+                                checked={tarea.isDone ? "checked" : ""}
                             />
                             {tarea.toggleEdit === false ? (
                                 <p className="tareaTexto">{tarea.textObj}</p>
