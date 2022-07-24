@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
 import "./styles/todo.css";
+import axios from "axios";
 
 function Todo() {
     const [Arreglo, setArreglo] = useState([
@@ -23,6 +24,21 @@ function Todo() {
     const handleClick = () => {
         if (text.length !== 0) {
             let temp = uuidv4();
+            axios
+                .post("localhost:4001/api/tasks", {
+                    routeName: "Anthony",
+                    textObj: text,
+                    id: temp,
+                    isDone: false,
+                    toggleEdit: false,
+                    name: "Anthony",
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch((error) =>
+                   console.log(error)
+                );
             setArreglo([
                 ...Arreglo,
                 { textObj: text, id: temp, isDone: false, toggleEdit: false },
@@ -32,9 +48,9 @@ function Todo() {
         }
     };
 
-    const handleSelected = (e) => {
-        console.log(`su id es: ${e}`);
-    };
+    // const handleSelected = (e) => {
+    //     console.log(`su id es: ${e}`);
+    // };
 
     const borrar = (tareaid) => {
         setArreglo(Arreglo.filter((tareatemp) => tareatemp.id !== tareaid));
@@ -53,7 +69,7 @@ function Todo() {
     const editTask = (tareaid) => {
         let temp = Arreglo.map((elemento) => {
             if (tareaid === elemento.id) {
-                if (elemento.toggleEdit == true) {
+                if (elemento.toggleEdit === true) {
                     setText2("");
                 }
                 return { ...elemento, toggleEdit: !elemento.toggleEdit };
@@ -97,7 +113,7 @@ function Todo() {
                     onChange={(e) => handleChange(e.target.value)}
                 />
                 <button className="buttonPlus" onClick={() => handleClick()}>
-                    <i class="bi bi-plus-circle-fill"></i>
+                    <i className="bi bi-plus-circle-fill"></i>
                 </button>
             </div>
             <div className="tasksWrapper">
@@ -135,7 +151,7 @@ function Todo() {
                                         <i className="bi bi-check-circle text-warning"></i>
                                     </button>
                                     <button onClick={() => editTask(tarea.id)}>
-                                        <i class="bi bi-x-circle text-danger"></i>
+                                        <i className="bi bi-x-circle text-danger"></i>
                                     </button>
                                 </div>
                             )}
