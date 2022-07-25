@@ -1,29 +1,109 @@
-a{
-  color: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .Navbar {
-  height: 100px;
   background-color: #A60321;
+  height: 100px;
   color: white;
-  display: flex;
-  flex-direction: row;
 }
-.elements {
-  list-style-type: none;
+.navContainer {
+  height: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pomodoroAppIcon {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
 }
-.element {
-  padding-right: 8px;
+.pomodoroAppTitle {
+  font-weight: bolder;
+  padding-left: 8px;
 }
-.pomodoroTitle {
-  padding: auto;
+.navMenu {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4em;
+}
+.navItem {
+  color: white;
+  text-decoration: none;
+  --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+
+}
+.navItem::after {
+  content: "";
+  display: block;
+  background: white;
+  width: 90%;
+  margin-top: 2px;
+  height: 2px;
+  clip-path: var(--clippy);
+  transition: clip-path 0.5s;
+}
+.navItem:hover {
+  color: white;
   font-weight: bold;
-  padding-right: 16px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
+  --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.navLabel, .navInput {
+  display: none;
+}
+
+@media (max-width: 767px){
+  .Navbar{
+    height: 80px;
+  }
+
+  .pomodoroAppTitle {
+    display: none;
+  }
+
+  .navLabel {
+    display: block;
+    cursor: pointer;
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 80px;
+    background: #A60321;
+    width: 20%;
+    right: 0;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 4px;
+    padding-right: 4px;
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    transition: clip-path 0.5s;
+  }
+
+  .navItem:hover {
+    width: 100%;
+    background-color: #DE4849;
+  }
+
+  .navInput:checked + .navMenu {
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+@media (min-width: 1024px) {
+  .navContainer {
+    font-size: larger;
+  }
+
 }
