@@ -1,11 +1,28 @@
 .actividad {
   width: 80%;
   height: 400px;
-  margin-top: 30px;
-  border-radius: 20px;
+  margin-top: 32px;
+  border-radius: 10px;
   background-color: #668C54;
 }
 .actividad h2 {
+  padding-top: 10px;
   text-align: center;
   color: white;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .actividad {
+    width: 93.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .actividad {
+    width: 93.5%;
+  }
 }
