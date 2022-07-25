@@ -79,7 +79,7 @@ const About = () => {
                         funcionen mejor para cada persona.{" "}
                     </p>
 
-                    <a href="https://es.wikipedia.org/wiki/T%C3%A9cnica_Pomodoro">
+                    <a href="https://es.wikipedia.org/wiki/T%C3%A9cnica_Pomodoro" target='_blank'>
                         Más información (fuente)
                     </a>
                 </div>
