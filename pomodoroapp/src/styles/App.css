@@ -3,11 +3,6 @@
 *::after {
   box-sizing: border-box;
 }
-
-body {
-  background-color: #DE4849;
-}
-
 .App {
   display: flex;
   flex-direction: column;
@@ -18,7 +13,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.tablero .columna1 {
+.columna1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,14 +21,21 @@ body {
   porque tiene una hoja de estilos 
   aparte */
 }
-.tablero .columna1 .timerPomodoro {
+.timerPomodoro {
   width: 80%;
-  height: 297px;
+  height: 300px;
   background-color: #668C54;
-  margin-top: 50px;
-  border-radius: 20px;
+  margin-top: 32px;
+  border-radius: 10px;
 }
-.tablero .columna2 {
+.todo{
+  background-color: #668C54;
+  width: 80%;
+  height: 600px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+.columna2 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +48,7 @@ body {
   border-radius: 20px;
 }
 footer {
-  height: 100px;
+  height: 120px;
   margin-top: 32px;
   color: white;
   background-color: #700000;
@@ -55,15 +57,44 @@ footer {
   align-items: center;
   flex-direction: column;
 }
+@media (max-width: 767px) {
 
-.todo{
-  background-color: #668C54;
-  width: 80%;
-  height: 570px;
-  border-radius: 20px;
-  margin-top: 20px;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .columna1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .timerPomodoro {
+    width: 45%;
+    height: 400px;
+    margin-top: 32px;
+  }
+  .todo{
+    width: 45%;
+    height: 400px;
+    margin-top: 32px;
+  }
+  
+}
+@media (min-width: 1024px) {
+  .columna1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .timerPomodoro {
+    width: 45%;
+    height: 400px;
+    margin-top: 32px;
+  }
+  .todo{
+    width: 45%;
+    height: 400px;
+    margin-top: 32px;
+  }
 
-
-
-
+}
