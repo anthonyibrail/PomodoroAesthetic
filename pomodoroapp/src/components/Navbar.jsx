@@ -43,9 +43,9 @@ function Navbar() {
                 <input type='checkbox' id='menuHamburguesa' className='navInput'></input>
 
                 <div className='navMenu'>
-                    <a href='/' className='navItem'>Home</a>
-                    <a href='/about' className='navItem'>About</a>
-                    <a href='/login' className='navItem'>Login Ejemplo</a>
+                    <Link to="/" className='eraseStyles'><p className='navItem'>Home</p></Link>
+                    <Link to="/about" className='eraseStyles'><p className='navItem'>About</p></Link>
+                    <Link to="/login" className='eraseStyles'><p className='navItem'>LogOut</p></Link>
                 </div>
                 
             </div>

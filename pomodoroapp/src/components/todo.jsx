@@ -3,21 +3,38 @@ import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
 import "./styles/todo.css";
 import axios from "axios";
+// import { Navigate } from "react-router-dom";
 
 function Todo() {
     const [Arreglo, setArreglo] = useState([]);
+    const [usuario, setUsuario] = useState("");
 
     const [text, setText] = useState("");
     const [text2, setText2] = useState("");
+
+    // const [FlagConexion, setFlagConexion] = useState(false);
 
     const handleChange = (e) => {
         setText(e);
     };
 
     useEffect(() => {
-        axios.get("http://localhost:4001/api/alltasks/anthony").then((res) => {
-            setArreglo(res.data);
-        });
+        let jwtTemp = localStorage.getItem("jwt");
+
+        console.log("este es jwtTemp",jwtTemp);
+
+        if (jwtTemp) {
+            axios
+                .get(`http://localhost:4001/api/alltasks/${jwtTemp}`)
+                .then((res) => {
+                    setArreglo(res.data.tareas);
+                    setUsuario(res.data.usuario);
+                });
+        }
+        else{
+            console.log("entre a null")
+            // setFlagConexion(true);
+        }
     }, []);
 
     const handleClick = () => {
@@ -25,26 +42,27 @@ function Todo() {
             let temp = uuidv4();
             axios
                 .post("http://localhost:4001/api/tasks", {
-                    routeName: "Anthony",
+                    routeName: usuario,
                     textObj: text,
                     id: temp,
                     isDone: false,
                     toggleEdit: false,
-                    name: "Anthony",
+                    name: usuario,
                 })
                 .then(function (response) {
                     console.log(response);
                 })
                 .catch((error) => console.log(error));
+
             setArreglo([
                 ...Arreglo,
                 {
-                    routeName: "Anthony",
+                    routeName: usuario,
                     textObj: text,
                     id: temp,
                     isDone: false,
                     toggleEdit: false,
-                    name: "Anthony",
+                    name: usuario,
                 },
             ]);
         } else {
@@ -65,8 +83,32 @@ function Todo() {
     };
 
     const checked = (tareaid) => {
+        let countedChecked = countCheck();
+        console.log(countedChecked);
+
+        // axios
+        //     .post("http://localhost:4001/api/numberTasks", {id:})
+        //     .then(() => {
+        //         console.log("checked exitoso");
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+
         let temp = Arreglo.map((elemento) => {
             if (tareaid === elemento.id) {
+                axios
+                    .post("http://localhost:4001/api/checkedtask", {
+                        id: tareaid,
+                        isDone: !elemento.isDone,
+                    })
+                    .then(() => {
+                        console.log("checked exitoso");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+
                 return { ...elemento, isDone: !elemento.isDone };
             }
             return elemento;
@@ -74,9 +116,18 @@ function Todo() {
         setArreglo(temp);
     };
 
-    const editTask = (tareaid) => {
-        
+    const countCheck = () => {
+        let checkedTasks = 0;
+        Arreglo.forEach((elemento) => {
+            if (elemento.isDone === true) {
+                checkedTasks++;
+            }
+        });
 
+        return checkedTasks;
+    };
+
+    const editTask = (tareaid) => {
         let temp = Arreglo.map((elemento) => {
             if (tareaid === elemento.id) {
                 if (elemento.toggleEdit === true) {
@@ -90,16 +141,17 @@ function Todo() {
     };
 
     const editText = (e) => {
-        console.log(e);
         setText2(e);
     };
 
     const replaceTask = (tareaid) => {
-
         axios
-            .post("http://localhost:4001/api/edittask", { id: tareaid, textObj: text2 })
+            .post("http://localhost:4001/api/edittask", {
+                id: tareaid,
+                textObj: text2,
+            })
             .then(() => {
-                console.log("editado exitoso");
+                console.log("borrado exitoso");
             })
             .catch((err) => {
                 console.log(err);
@@ -124,6 +176,7 @@ function Todo() {
 
     return (
         <div className="wrapperTodo">
+            {/* {FlagConexion && (<Navigate to="/login" replace={true} />)} */}
             <h1>To-Do List:</h1>
             <div className="addTask">
                 <input

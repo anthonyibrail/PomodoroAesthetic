@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PomodoroPage from "./components/pomodoroPage";
 import About from "./components/About";
 import SignIn from "./components/SignIn";
-
+import { UserContext } from "./components/UserContext.js";
 /* 
 TODO: primero vamos a hacer la versión de celular.
 */
@@ -14,12 +14,13 @@ TODO: primero vamos a hacer la versión de celular.
 function App() {
     return (
         <div className="App">
-            
             <BrowserRouter>
                 <Routes>
-                    <Route path="/login" element={<SignIn />} />
-                    <Route path="/" element={<PomodoroPage />} />
-                    <Route path="/About" element={<About />} />
+                    {/* <UserContext.Provider value="hola, desde el contexto"> */}
+                        <Route path="/login" element={<SignIn />} />
+                        <Route path="/" element={<PomodoroPage />} />
+                        <Route path="/About" element={<About />} />
+                    {/* </UserContext.Provider> */}
                 </Routes>
             </BrowserRouter>
 

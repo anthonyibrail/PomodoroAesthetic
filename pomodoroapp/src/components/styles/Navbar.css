@@ -55,6 +55,10 @@
   display: none;
 }
 
+.eraseStyles{
+  text-decoration: none;
+}
+
 @media (max-width: 767px){
   .Navbar{
     height: 80px;
