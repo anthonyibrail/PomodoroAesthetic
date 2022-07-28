@@ -25,9 +25,7 @@ function Todo() {
 
         if (jwtTemp) {
             axios
-                .get(`http://localhost:4001/api/alltasks`, {params: {
-                    jwt: jwtTemp
-                }})
+                .get(`http://localhost:4001/api/alltasks/${jwtTemp}`)
                 .then((res) => {
                     setArreglo(res.data.tareas);
                     setUsuario(res.data.usuario);

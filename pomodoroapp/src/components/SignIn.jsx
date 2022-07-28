@@ -60,9 +60,9 @@ export default function SignIn() {
                 })
                 .then((res) => {
                     if (res.data.conf === true) {
-                        let temp = typeof res.data.jwtToken;
-                        console.log(temp);
-                        localStorage.setItem("jwt", "cambio");
+                        let temp = res.data.jwtToken;
+                        
+                        localStorage.setItem("jwt", temp);
                         setNavFlag(true);
                     } else {
                         toast("El usuario o la contraseña son incorrectos");
